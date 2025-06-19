@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Zgłoszenia</h3>
+<table class="table">
+  <thead><tr><th>Typ</th><th>Opis</th><th>Użytkownik</th><th>Data</th></tr></thead>
+  <tbody>
+    {% for i in issues %}
+    <tr>
+      <td>{{ i.issue_type }}</td>
+      <td>{{ i.description }}</td>
+      <td>{{ i.user.username }}</td>
+      <td>{{ i.timestamp.strftime('%Y-%m-%d %H:%M') }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

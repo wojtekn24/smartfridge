@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Twoje produkty</h3>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nazwa</th><th>Kategoria</th><th>Ilość</th><th>Ważność</th><th>Status</th><th>Akcje</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for p in products %}
+      {% set days = (p.expiration_date - today).days %}
+      <tr class="{% if p.expiration_date < today %}table-danger{% elif days <= 3 %}table-warning{% endif %}">
+        <td>{{ p.name }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ p.quantity }}</td>
+        <td>{{ p.expiration_date }}</td>
+        <td>{{ p.status }}</td>
+        <td>
+          {% if p.status != 'oddany' %}
+          <a href="{{ url_for('transfer_product', product_id=p.id) }}" class="btn btn-sm btn-outline-primary">Przekaż</a>
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Dodaj produkt</h3>
+<form method="POST">
+  <div class="mb-3"><label>Nazwa</label><input type="text" name="name" class="form-control" required></div>
+  <div class="mb-3"><label>Data zakupu</label><input type="date" name="purchase_date" class="form-control" required></div>
+  <div class="mb-3"><label>Data ważności</label><input type="date" name="expiration_date" class="form-control" required></div>
+  <div class="mb-3"><label>Kategoria</label><input type="text" name="category" class="form-control" required></div>
+  <div class="mb-3"><label>Ilość</label><input type="number" name="quantity" value="1" min="1" class="form-control"></div>
+  <div class="mb-3"><label>Notatki</label><textarea name="notes" class="form-control"></textarea></div>
+  <div class="mb-3">
+    <label>Status</label>
+    <select name="status" class="form-select">
+      <option value="aktywny" selected>aktywny</option>
+      <option value="dostępny">dostępny</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success">Dodaj</button>
+</form>
+{% endblock %}

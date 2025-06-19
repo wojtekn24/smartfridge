@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Przekaż produkt: {{ product.name }}</h3>
+<form method="POST">
+  <div class="mb-3">
+    <label>Użytkownik (nazwa):</label>
+    <input type="text" name="username" class="form-control" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Przekaż</button>
+</form>
+{% endblock %}

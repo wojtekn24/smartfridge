@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Zgłoś problem</h3>
+<form method="POST">
+  <div class="mb-3"><label>Typ problemu</label>
+    <select name="type" class="form-select">
+      <option value="kradzież">kradzież</option>
+      <option value="bałagan">bałagan</option>
+      <option value="inne">inne</option>
+    </select>
+  </div>
+  <div class="mb-3"><label>Opis</label><textarea name="description" class="form-control" rows="3"></textarea></div>
+  <button type="submit" class="btn btn-danger">Zgłoś</button>
+</form>
+{% endblock %}
